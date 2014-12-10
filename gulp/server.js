@@ -22,17 +22,18 @@ function browserSyncInit(baseDir, files, browser) {
 
   browserSync.instance = browserSync.init(files, {
     startPath: '/index.html',
+    port: 9000,
     server: {
       baseDir: baseDir,
       middleware: middleware,
-      routes: routes
+      routes: routes,
     },
     browser: browser
   });
 
 }
 
-gulp.task('serve', ['inject', 'watch'], function () {
+gulp.task('serve', ['inject', 'wiredep', 'watch'], function () {
   browserSyncInit(['src', '.tmp'], [
     '.tmp/{app,components}/**/*.css',
     'src/assets/images/**/*',
