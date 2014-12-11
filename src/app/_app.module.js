@@ -1,14 +1,24 @@
-'use strict';
+(function () {
+  'use strict';
 
-// Declare app level module which depends on views, and components
-angular
-  .module('myApp', [
-    'ngRoute',
-    'ngMaterial',
-    'myApp.view1',
-    'myApp.view2',
-    'myApp.version'
-  ])
-  .config(function ($routeProvider) {
-    $routeProvider.otherwise({redirectTo: '/view1'});
-  });
+  angular
+    .module('myApp', [
+      'ui.router',
+      'ngMaterial',
+      'myApp.view1',
+      'myApp.view2',
+      'myApp.version'
+    ])
+    .config(stateConfig);
+
+  /** @ngInject */
+  function stateConfig($urlRouterProvider, $stateProvider) {
+    $urlRouterProvider.otherwise('/view1');
+
+    $stateProvider
+      .state('myApp', {
+        abstract: true,
+        templateUrl: 'app/app.html',
+      });
+  }
+})();

@@ -35,7 +35,7 @@
   </p>
   <![endif]-->
 
-  <div ng-include="'app/app.html'"></div>
+  <div ui-view></div>
 
   <!-- build:js scripts/vendor.js -->
   <!-- bower:js -->
@@ -47,15 +47,17 @@
   <script src="../bower_components/angular-aria/angular-aria.js"></script>
   <script src="../bower_components/hammerjs/hammer.js"></script>
   <script src="../bower_components/angular-material/angular-material.js"></script>
-  <script src="../bower_components/angular-route/angular-route.js"></script>
+  <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
 
   <!-- build:js({.tmp,src}) scripts/app.js -->
   <!-- inject:js -->
   <script src="app/_app.module.js"></script>
-  <script src="app/view1/view1.js"></script>
-  <script src="app/view2/view2.js"></script>
+  <script src="app/view1/_view1.module.js"></script>
+  <script src="app/view1/view1.controller.js"></script>
+  <script src="app/view2/_view2.module.js"></script>
+  <script src="app/view2/view2.controller.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/version.js"></script>
