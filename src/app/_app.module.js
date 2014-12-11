@@ -3,8 +3,8 @@
 
   angular
     .module('myApp', [
+      'idea',
       'ui.router',
-      'ngMaterial',
       'myApp.view1',
       'myApp.view2',
       'myApp.version'

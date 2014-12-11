@@ -1,1 +1,11 @@
 <p>This is the partial for view 1.</p>
+<md-content md-theme="deep-purple-theme">
+  <form name="myForm">
+    <input type="email" name="myField" ng-required="1" ng-minlength="5" ng-model="field">
+    <div ng-messages="myForm.myField.$error">
+      <div ng-message="required">You did not enter a field</div>
+      <div ng-message="minlength">The value entered is too short</div>
+      <div ng-message="email">E-mail inválido</div>
+    </div>
+  </form>
+</md-content>

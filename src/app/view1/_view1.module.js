@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('myApp.view1', ['ui.router'])
+    .module('myApp.view1', ['ui.router', 'ngMessages'])
     .config(stateConfig);
 
   /** @ngInject */

@@ -2,23 +2,21 @@
 <html class="no-js" ng-app="myApp">
 <head>
   <meta charset="utf-8">
-  <title>Material Design</title>
+  <title>Angular Gulp</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
 
   <!-- build:css({.tmp,src}) styles/vendor.css -->
   <!-- bower:css -->
-  <link rel="stylesheet" href="../bower_components/angular-material/angular-material.css" />
-  <link rel="stylesheet" href="../bower_components/angular-material/themes/indigo-theme.css" />
-  <link rel="stylesheet" href="../bower_components/angular-material/themes/blue-theme.css" />
-  <link rel="stylesheet" href="../bower_components/angular-material/themes/orange-theme.css" />
-  <link rel="stylesheet" href="../bower_components/angular-material/themes/deep-purple-theme.css" />
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-theme.css" />
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
   <!-- endbower -->
   <!-- endbuild -->
 
   <!-- build:css({.tmp,src}) styles/app.css -->
   <!-- inject:css -->
   <link rel="stylesheet" href="app/app.css">
+  <link rel="stylesheet" href="components/idea/idea.css">
   <!-- endinject -->
   <!-- endbuild -->
 
@@ -39,15 +37,19 @@
 
   <!-- build:js scripts/vendor.js -->
   <!-- bower:js -->
+  <script src="../bower_components/es5-shim/es5-shim.js"></script>
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
   <script src="../bower_components/angular/angular.js"></script>
   <script src="../bower_components/angular-animate/angular-animate.js"></script>
+  <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
   <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
-  <script src="../bower_components/angular-touch/angular-touch.js"></script>
+  <script src="../bower_components/angular-i18n/angular-locale_pt-br.js"></script>
+  <script src="../bower_components/angular-messages/angular-messages.js"></script>
+  <script src="../bower_components/angular-resource/angular-resource.js"></script>
   <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
-  <script src="../bower_components/angular-aria/angular-aria.js"></script>
-  <script src="../bower_components/hammerjs/hammer.js"></script>
-  <script src="../bower_components/angular-material/angular-material.js"></script>
+  <script src="../bower_components/angular-touch/angular-touch.js"></script>
   <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="../bower_components/json3/lib/json3.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -58,9 +60,26 @@
   <script src="app/view1/view1.controller.js"></script>
   <script src="app/view2/_view2.module.js"></script>
   <script src="app/view2/view2.controller.js"></script>
+  <script src="components/idea/_idea.module.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/version.js"></script>
+  <script src="components/idea/extra/i-filter.js"></script>
+  <script src="components/idea/extra/i-from-char-code.js"></script>
+  <script src="components/idea/extra/i-include-replace.js"></script>
+  <script src="components/idea/form/countdown.js"></script>
+  <script src="components/idea/form/equal-bigger-than.js"></script>
+  <script src="components/idea/form/i-button-select.js"></script>
+  <script src="components/idea/form/i-date-time.js"></script>
+  <script src="components/idea/form/i-form.js"></script>
+  <script src="components/idea/form/i-model.js"></script>
+  <script src="components/idea/form/i-string-list.js"></script>
+  <script src="components/idea/form/match.js"></script>
+  <script src="components/idea/list/i-list-detail.js"></script>
+  <script src="components/idea/list/i-list.js"></script>
+  <script src="components/idea/navbar/i-dropdown.js"></script>
+  <script src="components/idea/navbar/i-nav.js"></script>
+  <script src="components/idea/form/i-form-fields/i-form-field.js"></script>
   <!-- endinject -->
 
   <!-- inject:partials -->
