@@ -22,4 +22,10 @@ describe('my app', function () {
     });
 
   });
+
+  afterEach(function() {
+    browser.manage().logs().get('browser').then(function(browserLog) {
+      expect(browserLog.length).toEqual(0);
+    });
+  });
 });
