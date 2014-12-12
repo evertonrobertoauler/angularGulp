@@ -2,7 +2,7 @@
 
 angular
   .module('idea')
-  .service('iNavbarService', function iNavbarService() {
+  .service('iNavbar', function iNavbar() {
 
     var collapseElem;
 

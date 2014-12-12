@@ -2,12 +2,12 @@
 
 angular
   .module('idea')
-  .directive('iNavDropdown', function (iNavbarService) {
+  .directive('iNavDropdown', function (iNavbar) {
     return {
       restrict: 'E',
       transclude: true,
       replace: true,
-      templateUrl: 'components/idea/navbar/i-nav-dropdown.html',
+      templateUrl: 'components/idea/navbar/iNavDropdown.directive.html',
       scope: {
         title: '@',
       },
@@ -22,7 +22,7 @@ angular
 
         scope.isVisible = function () {
           for (var i in childs) {
-            if (iNavbarService.canShow(childs[i])) {
+            if (iNavbar.canShow(childs[i])) {
               return true;
             }
           }

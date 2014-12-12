@@ -2,9 +2,9 @@
 
 angular
   .module('idea')
-  .directive('iNavSearch', function (iNavbarService) {
+  .directive('iNavSearch', function (iNavbar) {
     return {
-      templateUrl: 'components/idea/navbar/i-nav-search.html',
+      templateUrl: 'components/idea/navbar/iNavSearch.directive.html',
       restrict: 'E',
       transclude: true,
       replace: true,
@@ -13,7 +13,7 @@ angular
         placeholder:'@',
       },
       link: function(scope){
-        scope.service = iNavbarService;
+        scope.service = iNavbar;
       }
     };
   });

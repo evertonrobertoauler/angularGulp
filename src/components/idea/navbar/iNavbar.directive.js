@@ -2,9 +2,9 @@
 
 angular
   .module('idea')
-  .directive('iNavbar', function($location, iNavbarService) {
+  .directive('iNavbar', function($location, iNavbar) {
     return {
-      templateUrl: 'components/idea/navbar/i-navbar.html',
+      templateUrl: 'components/idea/navbar/iNavbar.directive.html',
       restrict: 'E',
       transclude: true,
       scope: {
@@ -13,7 +13,7 @@ angular
         roles:'=',
       },
       link: function(scope, elem) {
-        iNavbarService.init(elem.find('#iNavBar'), scope.roles);
+        iNavbar.init(elem.find('#iNavBar'), scope.roles);
       }
     };
   });

@@ -2,12 +2,12 @@
 
 angular
   .module('idea')
-  .directive('iNavLink', function (iNavbarService, $timeout) {
+  .directive('iNavLink', function (iNavbar, $timeout) {
     return {
       restrict: 'E',
       replace: true,
       transclude: true,
-      templateUrl: 'components/idea/navbar/i-nav-link.html',
+      templateUrl: 'components/idea/navbar/iNavLink.directive.html',
       scope: {
         side:'@',
         role: '@',
@@ -15,8 +15,8 @@ angular
         href: '@',
       },
       link: function(scope, elem) {
-        scope.service = iNavbarService;
-        iNavbarService.register(scope.state, elem.text(), scope.role);
+        scope.service = iNavbar;
+        iNavbar.register(scope.state, elem.text(), scope.role);
 
         $timeout(function(){
           if (scope.$parent.$parent.registerChild) {
