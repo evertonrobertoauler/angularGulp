@@ -30,8 +30,14 @@ angular
       vm.links[role] = (vm.links[role] || []).concat([{state: state, title: title}]);
     };
 
-    vm.getLinks = function(){
-      return vm.links[undefined];
+    vm.getLinks = function () {
+      if (!vm.roles || !vm.roles.length) {
+        return vm.links[undefined];
+      } else {
+        return Array.prototype.concat.apply([], vm.roles.map(function (r) {
+          return vm.links[r];
+        }));
+      }
     };
 
     vm.collapse = function () {
