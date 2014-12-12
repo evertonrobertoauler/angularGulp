@@ -3,7 +3,7 @@
 describe('Filter: iFilter', function() {
 
   // load the filter's module
-  beforeEach(module('idea'));
+  beforeEach(module('idea.extra'));
 
   // initialize a new instance of the filter before each test
   var iFilter;

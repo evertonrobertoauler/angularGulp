@@ -11,6 +11,7 @@
       .state('myApp.view2', {
         url: '/view2',
         controller: 'View2Ctrl',
+        controllerAs: 'vm',
         templateUrl: 'app/view2/view2.html',
       });
   }

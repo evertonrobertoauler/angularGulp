@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-  .module('idea')
+  .module('idea.navbar')
   .directive('iNavLink', function (iNavbar, $timeout) {
     return {
       restrict: 'E',

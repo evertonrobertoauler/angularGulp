@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('idea')
+    .module('idea.extra')
     .filter('iFromCharCode', iFromCharCode);
 
   /** @ngInject */

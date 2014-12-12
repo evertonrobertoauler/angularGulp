@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-  .module('idea')
+  .module('idea.navbar')
   .directive('iNavDivider', function () {
     return {
       restrict: 'E',

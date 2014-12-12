@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('idea')
+    .module('idea.extra')
     .filter('iDropdown', iDropdown);
 
   /** @ngInject */

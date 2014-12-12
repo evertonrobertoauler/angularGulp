@@ -1,53 +1,58 @@
-'use strict';
+(function () {
+  'use strict';
 
-angular
-  .module('idea')
-  .service('iNavbar', function iNavbar() {
+  angular
+    .module('idea.navbar')
+    .service('iNavbar', iNavbar);
 
-    var collapseElem;
-
+  function iNavbar() {
     var vm = this;
 
-    vm.links = {};
+    var collapseElem, links = {}, collapsed = false;
 
-    vm.collapsed = false;
+    vm.init = init;
+    vm.register = register;
+    vm.getLinks = getLinks;
+    vm.collapse = collapse;
+    vm.canShow = canShow;
 
-    vm.init = function (elem, roles) {
+    function init(elem, roles) {
 
       collapseElem = elem;
       vm.roles = roles;
 
       collapseElem.on('hidden.bs.collapse', function () {
-        vm.collapsed = false;
+        collapsed = false;
       });
 
       collapseElem.on('shown.bs.collapse', function () {
-        vm.collapsed = true;
+        collapsed = true;
       });
-    };
+    }
 
-    vm.register = function (state, title, role) {
-      vm.links[role] = (vm.links[role] || []).concat([{state: state, title: title}]);
-    };
+    function register(state, title, role) {
+      links[role] = (links[role] || []).concat([{state: state, title: title}]);
+    }
 
-    vm.getLinks = function () {
+    function getLinks() {
       if (!vm.roles || !vm.roles.length) {
-        return vm.links[undefined];
+        return links[undefined];
       } else {
         return Array.prototype.concat.apply([], vm.roles.map(function (r) {
-          return vm.links[r];
+          return links[r];
         }));
       }
-    };
+    }
 
-    vm.collapse = function () {
-      if (vm.collapsed) {
+    function collapse() {
+      if (collapsed) {
         collapseElem.collapse('hide');
       }
-    };
+    }
 
-    vm.canShow = function (role) {
+    function canShow(role) {
       var roles = (vm.roles || []);
       return (!role && !roles.length || roles.indexOf(role) !== -1);
-    };
-  });
+    }
+  }
+})();

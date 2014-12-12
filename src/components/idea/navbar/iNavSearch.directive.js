@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-  .module('idea')
+  .module('idea.navbar')
   .directive('iNavSearch', function (iNavbar) {
     return {
       templateUrl: 'components/idea/navbar/iNavSearch.directive.html',

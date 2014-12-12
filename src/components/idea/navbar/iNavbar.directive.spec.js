@@ -3,10 +3,9 @@
 describe('Directive: iNavbar', function () {
 
   // load the directive's module
-  beforeEach(module('idea'));
+  beforeEach(module('idea.navbar'));
 
-  var element,
-    scope;
+  var element, scope;
 
   beforeEach(inject(function ($rootScope) {
     scope = $rootScope.$new();

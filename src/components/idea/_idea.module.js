@@ -1,3 +1,6 @@
 'use strict';
 
-angular.module('idea', ['ui.router']);
+angular
+  .module('idea', [
+    'idea.navbar',
+  ]);
