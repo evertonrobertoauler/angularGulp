@@ -2,7 +2,7 @@
 
 angular
   .module('idea')
-  .directive('iNavLink', function (iNavbarService) {
+  .directive('iNavLink', function (iNavbarService, $timeout) {
     return {
       restrict: 'E',
       replace: true,
@@ -17,6 +17,12 @@ angular
       link: function(scope, elem) {
         scope.service = iNavbarService;
         iNavbarService.register(scope.state, elem.text(), scope.role);
+
+        $timeout(function(){
+          if (scope.$parent.$parent.registerChild) {
+            scope.$parent.$parent.registerChild(scope.state, scope.role);
+          }
+        }, 100);
       }
     };
   });
