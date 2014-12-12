@@ -1,8 +1,12 @@
-'use strict';
+(function () {
+  'use strict';
 
-angular
-  .module('idea')
-  .directive('iNav', function iNav() {
+  angular
+    .module('idea')
+    .directive('iNav', iNav);
+
+  /** @ngInject */
+  function iNav() {
     return {
       restrict: 'E',
       transclude: true,
@@ -11,4 +15,5 @@ angular
         side: '@',
       }
     };
-  });
+  }
+})();
