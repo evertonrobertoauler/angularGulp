@@ -1,14 +1,15 @@
-<form class="navbar-form navbar-{{ navItem.side || 'right' }}" role="search">
+<form class="navbar-form navbar-{{ side || 'right' }}" role="search">
   <div class="form-group">
     <input type="text"
            class="form-control dropdown-toggle"
-           placeholder="{{ navItem.placeholder }}"
+           placeholder="{{ placeholder }}"
            ng-model="search"
            i-dropdown
            data-toggle="dropdown"/>
     <ul class="dropdown-menu" role="menu" ng-show="search.length > 0">
-      <li ng-repeat="l in results  = (navItem.options | filter:search) | orderBy:'title' | limitTo:10">
-        <a ng-click="collapse()">
+      <li ng-repeat="l in results  = (service.getLinks() | filter:search:'title') | orderBy:'title' | limitTo:10">
+        <a ng-click="collapse()"
+           ui-sref="{{ l.state }}">
           {{ l.title }}
         </a>
       </li>

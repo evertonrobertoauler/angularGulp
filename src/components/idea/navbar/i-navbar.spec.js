@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Directive: iNav', function () {
+describe('Directive: iNavbar', function () {
 
   // load the directive's module
   beforeEach(module('idea'));
@@ -13,8 +13,8 @@ describe('Directive: iNav', function () {
   }));
 
   it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<nav i-nav></nav>');
+    element = angular.element('<i-navbar title="Test"></i-navbar>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('');
+    expect(element.find('#iNavBar')).not.toBeUndefined();
   }));
 });

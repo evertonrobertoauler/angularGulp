@@ -1,12 +1,19 @@
-<header i-nav="{
-    title: 'Angular Gulp',
-    href: '#/view1',
-    left: [
-      {type: 'link', title: 'View 1', state: 'myApp.view1'},
-      {type: 'link', title: 'View 2', state: 'myApp.view2'},
-    ]
-  }">
-</header>
+<i-navbar title="Angular Gulp" state="myApp.view1">
+  <i-nav side="left">
+    <i-nav-link state="myApp.view1">View 1</i-nav-link>
+    <i-nav-dropdown title="Test 1">
+      <i-nav-link state="myApp.view2">View 2</i-nav-link>
+      <i-nav-link state="myApp.view1">View 1</i-nav-link>
+      <i-nav-dropdown title="Test 3">
+        <i-nav-link state="myApp.view1">View 1</i-nav-link>
+      </i-nav-dropdown>
+    </i-nav-dropdown>
+  </i-nav>
+  <i-nav-search side="right" placeholder="Buscar"></i-nav-search>
+  <i-nav side="right">
+    <i-nav-link state="myApp.view2">View 2</i-nav-link>
+  </i-nav>
+</i-navbar>
 
 <div ui-view></div>
 <div>Angular seed app: v<span app-version></span></div>

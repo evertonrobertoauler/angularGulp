@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('idea', []);
+angular.module('idea', ['ui.router']);
