@@ -1,3 +1,4 @@
 <li ui-sref-active="active" ng-show="service.canShow(role)">
-  <a ui-sref="{{ state }}" ng-click="service.collapse()" ng-transclude></a>
+  <a ng-if="state" ui-sref="{{ state }}" ng-click="service.collapse()" ng-transclude></a>
+  <a ng-if="href" href="{{ href }}" ng-click="service.collapse()" ng-transclude></a>
 </li>

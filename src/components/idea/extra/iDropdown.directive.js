@@ -3,17 +3,17 @@
 
   angular
     .module('idea.extra')
-    .filter('iDropdown', iDropdown);
+    .directive('iDropdown', iDropdown);
 
   /** @ngInject */
   function iDropdown() {
     return {
       restrict: 'A',
-      link: iDropdownLink
+      link: link
     };
   }
 
-  function iDropdownLink(scope, element) {
+  function link(scope, element) {
 
     element.parent().on('hidden.bs.dropdown', handler);
     element.on('keypress', handler);

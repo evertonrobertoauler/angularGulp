@@ -18,17 +18,25 @@
         state: '@',
         href: '@',
       },
-      link: link,
+      compile: compile,
       require: '^?iNavDropdown',
     };
 
-    function link(scope, elem, attrs, iNavDropdown) {
+    function compile() {
+      return {pre: link};
+    }
 
+    function link(scope, elem, attr, iNavDropdown, transcludeFn) {
       scope.service = iNavbar;
-      iNavbar.register(scope.state, elem.text(), scope.role);
 
       if (iNavDropdown) {
         iNavDropdown.registerChild(scope.state, scope.role);
+      }
+
+      transcludeFn(linkRegister);
+
+      function linkRegister(elem) {
+        scope.service.register(scope.state, elem.text(), scope.role);
       }
     }
   }
