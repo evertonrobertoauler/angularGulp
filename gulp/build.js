@@ -6,7 +6,7 @@ var $ = require('gulp-load-plugins')({
   pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license', 'del', 'run-sequence']
 });
 
-gulp.task('scripts', function () {
+gulp.task('jshint', function () {
   return gulp.src('src/{app,components}/**/*.js')
     .pipe($.jshint())
     .pipe($.jshint.reporter('jshint-stylish'))
@@ -43,7 +43,7 @@ gulp.task('partials', function () {
     .pipe($.size());
 });
 
-gulp.task('html', ['wiredep', 'scripts', 'partials'], function () {
+gulp.task('html', ['wiredep', 'jshint', 'partials'], function () {
   var htmlFilter = $.filter('*.html');
   var jsFilter = $.filter('**/*.js');
   var cssFilter = $.filter('**/*.css');
@@ -100,7 +100,7 @@ gulp.task('fonts', function () {
 });
 
 gulp.task('misc', function () {
-  return gulp.src('src/**/*.ico')
+  return gulp.src('src/**/*.icoangular')
     .pipe(gulp.dest('dist'))
     .pipe($.size());
 });
@@ -111,4 +111,12 @@ gulp.task('clean', function (done) {
 
 gulp.task('build', function(done) {
   $.runSequence('clean', ['html', 'images', 'fonts', 'misc'], done);
+});
+
+gulp.task('test', function(done) {
+  $.runSequence('jshint', 'karma', 'protractor', done);
+});
+
+gulp.task('test:dist', function(done) {
+  $.runSequence('build', 'karma:dist', 'protractor:dist', done);
 });

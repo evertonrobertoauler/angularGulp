@@ -32,7 +32,7 @@ gulp.task('karma:src', function() {
     });
 });
 
-gulp.task('karma:dist', ['build'], function() {
+gulp.task('karma:dist', function() {
 
   var testFiles = [
     'dist/scripts/modernizr*.js',

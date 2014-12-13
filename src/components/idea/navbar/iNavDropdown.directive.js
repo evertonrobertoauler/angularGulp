@@ -1,8 +1,12 @@
-'use strict';
+(function () {
+  'use strict';
 
-angular
-  .module('idea.navbar')
-  .directive('iNavDropdown', function (iNavbar) {
+  angular
+    .module('idea.navbar')
+    .directive('iNavDropdown', iNavDropdown);
+
+  /** @ngInject */
+  function iNavDropdown() {
     return {
       restrict: 'E',
       transclude: true,
@@ -11,24 +15,42 @@ angular
       scope: {
         title: '@',
       },
-      link: function (scope, elem) {
-        scope.first = elem.parent().parent().prop('tagName').toLowerCase() === 'i-nav';
-
-        var childs = {};
-
-        scope.registerChild = function (state, role) {
-          childs[state] = role;
-        };
-
-        scope.isVisible = function () {
-          for (var i in childs) {
-            if (iNavbar.canShow(childs[i])) {
-              return true;
-            }
-          }
-
-          return false;
-        };
-      }
+      link: link,
+      controller: controller,
+      controllerAs: 'vm',
     };
-  });
+
+    function link(scope, elem){
+      scope.vm.first = isFirst();
+
+      function isFirst() {
+        var parentTagName = elem.parent().parent().prop('tagName');
+        return parentTagName.toLowerCase() === 'i-nav';
+      }
+    }
+
+    /** @ngInject */
+    function controller($scope, iNavbar) {
+      var vm = this;
+      var childs = {};
+
+      vm.registerChild = registerChild;
+      vm.isVisible = isVisible;
+      vm.title = $scope.title;
+
+      function registerChild(state, role) {
+        childs[state] = role;
+      }
+
+      function isVisible() {
+        for (var i in childs) {
+          if (iNavbar.canShow(childs[i])) {
+            return true;
+          }
+        }
+
+        return false;
+      }
+    }
+  }
+})();

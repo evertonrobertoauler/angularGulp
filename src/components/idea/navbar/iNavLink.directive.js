@@ -1,28 +1,35 @@
-'use strict';
+(function () {
+  'use strict';
 
-angular
-  .module('idea.navbar')
-  .directive('iNavLink', function (iNavbar, $timeout) {
+  angular
+    .module('idea.navbar')
+    .directive('iNavLink', iNavLink);
+
+  /** @ngInject */
+  function iNavLink(iNavbar) {
     return {
       restrict: 'E',
       replace: true,
       transclude: true,
       templateUrl: 'components/idea/navbar/iNavLink.directive.html',
       scope: {
-        side:'@',
+        side: '@',
         role: '@',
         state: '@',
         href: '@',
       },
-      link: function(scope, elem) {
-        scope.service = iNavbar;
-        iNavbar.register(scope.state, elem.text(), scope.role);
-
-        $timeout(function(){
-          if (scope.$parent.$parent.registerChild) {
-            scope.$parent.$parent.registerChild(scope.state, scope.role);
-          }
-        }, 100);
-      }
+      link: link,
+      require: '^?iNavDropdown',
     };
-  });
+
+    function link(scope, elem, attrs, iNavDropdown) {
+
+      scope.service = iNavbar;
+      iNavbar.register(scope.state, elem.text(), scope.role);
+
+      if (iNavDropdown) {
+        iNavDropdown.registerChild(scope.state, scope.role);
+      }
+    }
+  }
+})();

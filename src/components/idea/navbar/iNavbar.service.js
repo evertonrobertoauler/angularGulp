@@ -5,6 +5,7 @@
     .module('idea.navbar')
     .service('iNavbar', iNavbar);
 
+  /** @ngInject */
   function iNavbar() {
     var vm = this;
 
