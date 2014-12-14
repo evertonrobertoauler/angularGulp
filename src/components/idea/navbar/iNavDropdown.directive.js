@@ -18,6 +18,7 @@
       link: link,
       controller: controller,
       controllerAs: 'vm',
+      bindToController: true,
     };
 
     function link(scope, elem){
@@ -30,13 +31,12 @@
     }
 
     /** @ngInject */
-    function controller($scope, iNavbar) {
+    function controller(iNavbar) {
       var vm = this;
       var childs = {};
 
       vm.registerChild = registerChild;
       vm.isVisible = isVisible;
-      vm.title = $scope.title;
 
       function registerChild(state, role) {
         childs[state] = role;

@@ -16,10 +16,10 @@
         state: '@',
         roles: '=',
       },
-      link: iNavbarDirectiveLink
+      link: link,
     };
 
-    function iNavbarDirectiveLink(scope, elem) {
+    function link(scope, elem) {
       iNavbar.init(elem.find('#iNavBar'), scope.roles);
     }
   }
