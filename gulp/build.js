@@ -109,14 +109,14 @@ gulp.task('clean', function (done) {
   $.del(['.tmp', 'dist'], done);
 });
 
-gulp.task('build', function(done) {
+gulp.task('build', function (done) {
   $.runSequence('clean', ['html', 'images', 'fonts', 'misc'], done);
 });
 
-gulp.task('test', function(done) {
+gulp.task('test', function (done) {
   $.runSequence('jshint', 'karma', 'protractor', done);
 });
 
-gulp.task('test:dist', function(done) {
+gulp.task('test:dist', function (done) {
   $.runSequence('build', 'karma:dist', 'protractor:dist', done);
 });

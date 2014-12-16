@@ -28,6 +28,7 @@
     "gulp-useref": "^1.0.2",
     "http-proxy": "^1.7.3",
     "jshint-stylish": "^1.0.0",
+    "karma-jasmine": "^0.3.2",
     "karma-phantomjs-launcher": "^0.1.4",
     "main-bower-files": "^2.4.1",
     "protractor": "^1.5.0",
@@ -40,7 +41,6 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "preinstall": "bower install",
-    "postinstall": "npm install karma-jasmine@^0.3.2"
+    "preinstall": "bower install"
   }
 }
