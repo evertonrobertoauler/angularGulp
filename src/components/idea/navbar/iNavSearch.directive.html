@@ -1,10 +1,10 @@
 <form class="navbar-form navbar-{{ side || 'right' }}" role="search">
-  <div class="form-group">
+  <div class="form-group dropdown">
     <input type="text"
            class="form-control dropdown-toggle"
            placeholder="{{ placeholder }}"
            ng-model="search"
-           i-dropdown
+           i-nav-search-dropdown
            data-toggle="dropdown"/>
     <ul class="dropdown-menu" role="menu" ng-show="search.length > 0">
       <li ng-repeat="l in results  = (service.getLinks() | filter:search:'title') | orderBy:'title' | limitTo:10">

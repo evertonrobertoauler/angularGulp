@@ -2,11 +2,11 @@
   'use strict';
 
   angular
-    .module('idea.extra')
-    .directive('iDropdown', iDropdown);
+    .module('idea.navbar')
+    .directive('iNavSearchDropdown', iNavSearchDropdown);
 
   /** @ngInject */
-  function iDropdown() {
+  function iNavSearchDropdown() {
     return {
       restrict: 'A',
       link: link
