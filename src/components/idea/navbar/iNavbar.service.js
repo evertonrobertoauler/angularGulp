@@ -31,8 +31,8 @@
       });
     }
 
-    function register(state, title, role) {
-      links[role] = (links[role] || []).concat([{state: state, title: title}]);
+    function register(linkObj, role) {
+      links[role] = (links[role] || []).concat([linkObj]);
     }
 
     function getLinks() {

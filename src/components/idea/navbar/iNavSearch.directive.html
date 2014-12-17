@@ -8,10 +8,8 @@
            data-toggle="dropdown"/>
     <ul class="dropdown-menu" role="menu" ng-show="search.length > 0">
       <li ng-repeat="l in results  = (service.getLinks() | filter:search:'title') | orderBy:'title' | limitTo:10">
-        <a ng-click="collapse()"
-           ui-sref="{{ l.state }}">
-          {{ l.title }}
-        </a>
+        <a ng-if="l.state" ng-click="collapse()" ui-sref="{{ l.state }}">{{ l.title }}</a>
+        <a ng-if="l.href" ng-click="collapse()" href="{{ l.href }}">{{ l.title }}</a>
       </li>
       <li ng-if="results.length == 0">
         <a class="text-center">Nenhum resultado encontrado!</a>

@@ -36,7 +36,8 @@
       transcludeFn(linkRegister);
 
       function linkRegister(elem) {
-        scope.service.register(scope.state, elem.text(), scope.role);
+        var linkObj = {state: scope.state, href: scope.href, title: elem.text()};
+        scope.service.register(linkObj, scope.role);
       }
     }
   }
