@@ -1,11 +1,12 @@
 <p>This is the partial for view 1.</p>
-<form name="myForm">
-  <input type="email" name="myField" ng-required="1" ng-minlength="5" ng-model="field">
-  <div ng-messages="myForm.myField.$error">
-    <div ng-message="required">You did not enter a field</div>
-    <div ng-message="minlength">The value entered is too short</div>
-    <div ng-message="email">E-mail inválido</div>
-  </div>
 
+<i-form submit="vm.submit()">
+  <i-field label="Label">
+    <input i-field-model type="email" ng-required="1" ng-minlength="5" ng-model="field"/>
+    <i-message type="required">You did not enter a field</i-message>
+    <i-message type="minlength">The value entered is too short</i-message>
+    <i-message type="email">E-mail inválido</i-message>
+  </i-field>
   <i class="glyphicon glyphicon-music"></i>
-</form>
+  <input class="btn btn-primary" type="submit" value="enviar"/>
+</i-form>

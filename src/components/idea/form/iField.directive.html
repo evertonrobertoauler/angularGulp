@@ -1,0 +1,9 @@
+<div class="form-group"
+     ng-class="{'has-error': vm.showErrors()}">
+  <label class="control-label col-sm-3">{{ vm.label }}</label>
+
+  <div class="col-sm-9"
+       ng-switch="vm.error"
+       ng-transclude>
+  </div>
+</div>
