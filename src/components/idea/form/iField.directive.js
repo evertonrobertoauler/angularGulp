@@ -14,6 +14,8 @@
       templateUrl: 'components/idea/form/iField.directive.html',
       scope: {
         label: '@',
+        labelClass: '@',
+        fieldClass: '@',
       },
       link: link,
       controller: controller,
