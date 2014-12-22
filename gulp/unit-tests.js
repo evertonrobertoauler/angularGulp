@@ -18,6 +18,7 @@ gulp.task('karma:src', function() {
 
   var testFiles = bowerDeps.js.concat([
     'src/**/*.js',
+    'src/**/*.html',
     '!src/**/*.e2e.js',
   ]);
 

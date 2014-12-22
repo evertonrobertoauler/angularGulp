@@ -37,7 +37,7 @@ gulp.task('partials', function () {
       quotes: true
     }))
     .pipe($.ngHtml2js({
-      moduleName: 'myApp',
+      moduleName: 'ngHtml2js',
     }))
     .pipe(gulp.dest('.tmp/partials'))
     .pipe($.size());
@@ -59,6 +59,8 @@ gulp.task('html', ['wiredep', 'jshint', 'partials'], function () {
     .pipe(assets = $.useref.assets())
     .pipe($.rev())
     .pipe(jsFilter)
+    .pipe($.replace('debugInfoEnabled(true)', 'debugInfoEnabled(false)'))
+    .pipe($.replace('//\'ngHtml2js\'', '\'ngHtml2js\''))
     .pipe($.ngAnnotate())
     .pipe($.uglify({preserveComments: $.uglifySaveLicense}))
     .pipe(jsFilter.restore())
@@ -106,7 +108,7 @@ gulp.task('misc', function () {
 });
 
 gulp.task('clean', function (done) {
-  $.del(['.tmp', 'dist'], done);
+  $.del(['.tmp', 'dist', 'coverage'], done);
 });
 
 gulp.task('build', function (done) {

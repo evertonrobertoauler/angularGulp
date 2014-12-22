@@ -35,7 +35,7 @@ function browserSyncInit(baseDir, files, browser) {
 
 gulp.task('serve', ['inject', 'wiredep', 'watch'], function () {
   browserSyncInit(['src', '.tmp'], [
-    '.tmp/{app,components}/**/*.css',
+    'src/{app,components}/**/*.css',
     'src/assets/images/**/*',
     'src/*.html',
     'src/{app,components}/**/*.html',
@@ -53,4 +53,8 @@ gulp.task('serve:e2e', function () {
 
 gulp.task('serve:e2e-dist', ['watch'], function () {
   browserSyncInit('dist', null, []);
+});
+
+gulp.task('serve:coverage', function () {
+  browserSyncInit('coverage/PhantomJS 1.9.8 (Linux)');
 });
