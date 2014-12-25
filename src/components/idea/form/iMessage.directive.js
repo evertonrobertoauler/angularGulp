@@ -11,11 +11,11 @@
       restrict: 'E',
       replace: true,
       transclude: true,
-      template: '<div ng-show="vm.iField.showError(vm.type)" class="text-danger">{{ vm.message }}</div>',
+      template: '<div ng-show="vm.iField.showError(vm.type)" class="text-danger" ng-transclude></div>',
       scope: {
         type: '@',
       },
-      compile: compile,
+      link: link,
       controller: function () {
       },
       controllerAs: 'vm',
@@ -23,21 +23,10 @@
       require: '^iField'
     };
 
-    function compile() {
-      return {pre: link};
-    }
 
-    function link(scope, elem, attrs, iField, transcludeFn) {
-
+    function link(scope, elem, attrs, iField) {
       iField.registerErrorType(scope.vm.type);
-
       scope.vm.iField = iField;
-
-      transcludeFn(getMessage);
-
-      function getMessage(elem) {
-        scope.vm.message = elem.html();
-      }
     }
   }
 })();
