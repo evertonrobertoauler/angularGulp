@@ -6,48 +6,38 @@
     .service('iNavbar', iNavbar);
 
   /** @ngInject */
-  function iNavbar() {
+  function iNavbar($filter) {
     var vm = this;
 
-    var collapseElem, links = {}, collapsed = false;
-
-    vm.init = init;
+    vm.links = {};
+    vm.collapsed = false;
     vm.register = register;
     vm.getLinks = getLinks;
     vm.collapse = collapse;
     vm.canShow = canShow;
-
-    function init(elem, roles) {
-
-      collapseElem = elem;
-      vm.roles = roles;
-
-      collapseElem.on('hidden.bs.collapse', function () {
-        collapsed = false;
-      });
-
-      collapseElem.on('shown.bs.collapse', function () {
-        collapsed = true;
-      });
-    }
+    vm.triggerCollapse = undefined;
 
     function register(linkObj, role) {
-      links[role] = (links[role] || []).concat([linkObj]);
+      vm.links[role] = (vm.links[role] || []).concat([linkObj]);
     }
 
-    function getLinks() {
+    function getLinks(search) {
+      var list;
+
       if (!vm.roles || !vm.roles.length) {
-        return links[undefined];
+        list = vm.links[undefined];
       } else {
-        return Array.prototype.concat.apply([], vm.roles.map(function (r) {
-          return links[r];
+        list = Array.prototype.concat.apply([], vm.roles.map(function (r) {
+          return vm.links[r];
         }));
       }
+
+      return $filter('filter')(list, {search: search});
     }
 
     function collapse() {
-      if (collapsed) {
-        collapseElem.collapse('hide');
+      if (vm.collapsed && vm.triggerCollapse) {
+        vm.triggerCollapse();
       }
     }
 

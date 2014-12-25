@@ -1,0 +1,15 @@
+<label ng-if="!item.childs || item.childs.length > 0" ng-init="item.open = false">
+  <i ng-if="item.childs"
+     class="glyphicon glyphicon-folder-{{item.open ? 'open' : 'close'}}"
+     ng-click="item.open = !item.open">
+  </i>
+  <a href="{{ vm.getHref(item) }}" ng-click="item.open = true">
+    <i ng-if="!item.childs" class="glyphicon glyphicon-file"></i>
+    {{item.label}}
+  </a>
+</label>
+<ul ng-show="item.open" ng-if="item.childs" class="nav nav-sidebar tree">
+  <li ng-repeat="item in item.childs"
+      ng-include="'components/idea/sidebar/iSidebar.include.html'">
+  </li>
+</ul>

@@ -29,7 +29,7 @@ module.exports = function (config) {
 
     preprocessors: {
       '**/*.html': ['ng-html2js'],
-      'src/**/!(*spec).js': ['coverage']
+      'src/**/!(*.spec|*.module|*.dev).js': ['coverage']
     },
 
     ngHtml2JsPreprocessor: {

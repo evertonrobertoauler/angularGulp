@@ -13,21 +13,26 @@ gulp.task('jshint', function () {
     .pipe($.size());
 });
 
-gulp.task('inject', function () {
-  return gulp.src('src/*.html')
-    .pipe($.inject(gulp.src(['src/{app,components}/**/*.js', '!src/{app,components}/**/*.{spec,e2e}.js']), {
-      read: false,
-      starttag: '<!-- inject:js -->',
-      relative: true,
-    }))
-    .pipe($.inject(gulp.src('src/{app,components}/**/*.css'), {
-      read: false,
-      starttag: '<!-- inject:css -->',
-      relative: true,
-    }))
-    .pipe(gulp.dest('src'))
-    .pipe($.size());
-});
+var inject = function (jsSrc) {
+  return function () {
+    return gulp.src('src/*.html')
+      .pipe($.inject(gulp.src(jsSrc), {
+        read: false,
+        starttag: '<!-- inject:js -->',
+        relative: true,
+      }))
+      .pipe($.inject(gulp.src('src/{app,components}/**/*.css'), {
+        read: false,
+        starttag: '<!-- inject:css -->',
+        relative: true,
+      }))
+      .pipe(gulp.dest('src'))
+      .pipe($.size());
+  };
+};
+
+gulp.task('inject:dev', inject(['src/{app,components}/**/*.js', '!src/{app,components}/**/*.{spec,e2e}.js']));
+gulp.task('inject', inject(['src/{app,components}/**/*.js', '!src/{app,components}/**/*.{spec,e2e,dev}.js']));
 
 gulp.task('partials', function () {
   return gulp.src('src/{app,components}/**/*.html')
@@ -115,10 +120,18 @@ gulp.task('build', function (done) {
   $.runSequence('clean', ['html', 'images', 'fonts', 'misc'], done);
 });
 
+gulp.task('build:production', function (done) {
+  $.runSequence('inject', 'build', 'inject:dev', done);
+});
+
+gulp.task('build:dev', function (done) {
+  $.runSequence('inject:dev', 'build', done);
+});
+
 gulp.task('test', function (done) {
   $.runSequence('jshint', 'karma', 'protractor', done);
 });
 
 gulp.task('test:dist', function (done) {
-  $.runSequence('build', 'karma:dist', 'protractor:dist', done);
+  $.runSequence('build:dev', 'karma:dist', 'protractor:dist', done);
 });

@@ -1,0 +1,6 @@
+<ol class="breadcrumb" ng-show="vm.links">
+  <li ng-transclude></li>
+  <li ng-repeat="link in vm.links">
+    <a href="{{ link.href }}">{{ link.label }}</a>
+  </li>
+</ol>

@@ -19,8 +19,25 @@
       link: link,
     };
 
-    function link(scope) {
+    function link(scope, elem) {
+
+      var input = getInput();
+
       scope.service = iNavbar;
+      scope.getInput = getInput;
+
+      input.parent().on('hidden.bs.dropdown', handler);
+      input.on('keypress', handler);
+
+      function getInput() {
+        return input || elem.find('.dropdown-toggle').first();
+      }
+
+      function handler() {
+        if (input.is(':focus') && !input.parent().attr('class').match(/open/)) {
+          input.dropdown('toggle');
+        }
+      }
     }
   }
 })();

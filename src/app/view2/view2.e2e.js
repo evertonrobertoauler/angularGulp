@@ -11,8 +11,8 @@ describe('view2', function () {
       toMatch(/partial for view 2/);
   });
 
-  afterEach(function() {
-    browser.manage().logs().get('browser').then(function(browserLog) {
+  afterEach(function () {
+    browser.manage().logs().get('browser').then(function (browserLog) {
       expect(browserLog).toEqual([]);
     });
   });

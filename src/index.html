@@ -17,6 +17,7 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="app/app.css">
   <link rel="stylesheet" href="components/idea/navbar/navbar.css">
+  <link rel="stylesheet" href="components/idea/sidebar/sidebar.css">
   <!-- endinject -->
   <!-- endbuild -->
 
@@ -26,55 +27,62 @@
 
 </head>
 <body>
-  <!--[if lt IE 9]>
-  <p class="browsehappy" style="text-align: center;">
-    Você está utilizando um Navegador <strong>desatualizado</strong>. Para uma boa experiência em nosso site
-    <a href="http://browsehappy.com/?locale=pt-BR">clique aqui e atualize</a>.
-  </p>
-  <![endif]-->
+<!--[if lt IE 9]>
+<p class="browsehappy" style="text-align: center;">
+  Você está utilizando um Navegador <strong>desatualizado</strong>. Para uma boa experiência em nosso site
+  <a href="http://browsehappy.com/?locale=pt-BR">clique aqui e atualize</a>.
+</p>
+<![endif]-->
 
-  <div ui-view></div>
+<div ui-view></div>
 
-  <!-- build:js scripts/vendor.js -->
-  <!-- bower:js -->
-  <script src="../bower_components/jquery/dist/jquery.js"></script>
-  <script src="../bower_components/angular/angular.js"></script>
-  <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-  <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
-  <script src="../bower_components/angular-touch/angular-touch.js"></script>
-  <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-  <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
-  <script src="../bower_components/lodash/dist/lodash.compat.js"></script>
-  <!-- endbower -->
-  <!-- endbuild -->
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="../bower_components/jquery/dist/jquery.js"></script>
+<script src="../bower_components/angular/angular.js"></script>
+<script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="../bower_components/angular-touch/angular-touch.js"></script>
+<script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../bower_components/lodash/dist/lodash.compat.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
 
-  <!-- build:js({.tmp,src}) scripts/app.js -->
-  <!-- inject:js -->
-  <script src="app/_app.module.js"></script>
-  <script src="app/view1/_view1.module.js"></script>
-  <script src="app/view1/view1.controller.js"></script>
-  <script src="app/view2/_view2.module.js"></script>
-  <script src="app/view2/view2.controller.js"></script>
-  <script src="components/idea/_idea.module.js"></script>
-  <script src="components/idea/form/_form.module.js"></script>
-  <script src="components/idea/form/iField.directive.js"></script>
-  <script src="components/idea/form/iFieldModel.directive.js"></script>
-  <script src="components/idea/form/iForm.directive.js"></script>
-  <script src="components/idea/form/iMessage.directive.js"></script>
-  <script src="components/idea/navbar/_navbar.module.js"></script>
-  <script src="components/idea/navbar/iNav.directive.js"></script>
-  <script src="components/idea/navbar/iNavDivider.directive.js"></script>
-  <script src="components/idea/navbar/iNavDropdown.directive.js"></script>
-  <script src="components/idea/navbar/iNavLink.directive.js"></script>
-  <script src="components/idea/navbar/iNavSearch.directive.js"></script>
-  <script src="components/idea/navbar/iNavSearchDropdown.directive.js"></script>
-  <script src="components/idea/navbar/iNavbar.directive.js"></script>
-  <script src="components/idea/navbar/iNavbar.service.js"></script>
-  <!-- endinject -->
+<!-- build:js({.tmp,src}) scripts/app.js -->
+<!-- inject:js -->
+<script src="app/_app.module.js"></script>
+<script src="app/view1/_view1.module.js"></script>
+<script src="app/view1/view1.controller.js"></script>
+<script src="app/view2/_view2.module.js"></script>
+<script src="app/view2/view2.controller.js"></script>
+<script src="components/idea/_idea.module.js"></script>
+<script src="components/idea/breadcrumb/_breadcrumb.module.js"></script>
+<script src="components/idea/breadcrumb/iBreadcrumb.controller.js"></script>
+<script src="components/idea/breadcrumb/iBreadcrumb.directive.js"></script>
+<script src="components/idea/form/_form.module.js"></script>
+<script src="components/idea/form/iField.directive.js"></script>
+<script src="components/idea/form/iFieldModel.directive.js"></script>
+<script src="components/idea/form/iForm.directive.js"></script>
+<script src="components/idea/form/iMessage.directive.js"></script>
+<script src="components/idea/navbar/_navbar.module.js"></script>
+<script src="components/idea/navbar/iNav.directive.js"></script>
+<script src="components/idea/navbar/iNavDivider.directive.js"></script>
+<script src="components/idea/navbar/iNavDropdown.controller.js"></script>
+<script src="components/idea/navbar/iNavDropdown.directive.js"></script>
+<script src="components/idea/navbar/iNavLink.directive.js"></script>
+<script src="components/idea/navbar/iNavSearch.directive.js"></script>
+<script src="components/idea/navbar/iNavbar.directive.js"></script>
+<script src="components/idea/navbar/iNavbar.service.js"></script>
+<script src="components/idea/sidebar/_sidebar.module.js"></script>
+<script src="components/idea/sidebar/iCategory.directive.js"></script>
+<script src="components/idea/sidebar/iItem.directive.js"></script>
+<script src="components/idea/sidebar/iSidebar.directive.js"></script>
+<script src="components/idea/sidebar/iSidebar.service.js"></script>
+<!-- endinject -->
 
-  <!-- inject:partials -->
-  <!-- angular templates will be automaticaly converted in js and inserted here -->
-  <!-- endinject -->
-  <!-- endbuild -->
+<!-- inject:partials -->
+<!-- angular templates will be automaticaly converted in js and inserted here -->
+<!-- endinject -->
+<!-- endbuild -->
 </body>
 </html>

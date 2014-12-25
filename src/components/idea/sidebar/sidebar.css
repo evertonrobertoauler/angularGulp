@@ -1,0 +1,15 @@
+.tree {
+  padding-left: 20px;
+}
+
+.nav-sidebar > li > label > a {
+  padding: 5px;
+  margin: 5px 0;
+  display: inline;
+  position: relative;
+  text-decoration: none;
+}
+
+.nav-sidebar > li > label > i {
+  cursor: pointer;
+}

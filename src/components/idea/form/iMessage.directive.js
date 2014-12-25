@@ -16,7 +16,8 @@
         type: '@',
       },
       compile: compile,
-      controller: function(){},
+      controller: function () {
+      },
       controllerAs: 'vm',
       bindToController: true,
       require: '^iField'

@@ -20,7 +20,28 @@
     };
 
     function link(scope, elem) {
-      iNavbar.init(elem.find('#iNavBar'), scope.roles);
+
+      var button = getCollapseButton();
+
+      scope.getCollapseButton = getCollapseButton;
+
+      iNavbar.roles = scope.roles;
+
+      iNavbar.triggerCollapse = function () {
+        button.collapse('hide');
+      };
+
+      button.on('hidden.bs.collapse', function () {
+        iNavbar.collapsed = false;
+      });
+
+      button.on('shown.bs.collapse', function () {
+        iNavbar.collapsed = true;
+      });
+
+      function getCollapseButton() {
+        return button || elem.find('#iNavBar');
+      }
     }
   }
 })();

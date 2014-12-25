@@ -13,7 +13,6 @@
       transclude: true,
       templateUrl: 'components/idea/navbar/iNavLink.directive.html',
       scope: {
-        side: '@',
         role: '@',
         state: '@',
         href: '@',
@@ -36,7 +35,7 @@
       transcludeFn(linkRegister);
 
       function linkRegister(elem) {
-        var linkObj = {state: scope.state, href: scope.href, title: elem.text()};
+        var linkObj = {state: scope.state, href: scope.href, title: elem.text(), search: elem.text()};
         scope.service.register(linkObj, scope.role);
       }
     }

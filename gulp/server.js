@@ -33,7 +33,7 @@ function browserSyncInit(baseDir, files, browser) {
 
 }
 
-gulp.task('serve', ['inject', 'wiredep', 'watch'], function () {
+gulp.task('serve', ['inject:dev', 'wiredep', 'watch'], function () {
   browserSyncInit(['src', '.tmp'], [
     'src/{app,components}/**/*.css',
     'src/assets/images/**/*',
@@ -51,7 +51,7 @@ gulp.task('serve:e2e', function () {
   browserSyncInit(['src', '.tmp'], null, []);
 });
 
-gulp.task('serve:e2e-dist', ['watch'], function () {
+gulp.task('serve:e2e-dist', function () {
   browserSyncInit('dist', null, []);
 });
 
