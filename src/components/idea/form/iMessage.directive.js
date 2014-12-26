@@ -3,30 +3,22 @@
 
   angular
     .module('idea.form')
-    .directive('iMessage', iMessage);
+    .directive('iMessage', function iMessage() {
+      return {
+        restrict: 'E',
+        replace: true,
+        transclude: true,
+        template: '<div ng-show="iField.showError(type)" class="text-danger" ng-transclude></div>',
+        scope: {
+          type: '@',
+        },
+        link: link,
+        require: '^iField'
+      };
 
-  /** @ngInject */
-  function iMessage() {
-    return {
-      restrict: 'E',
-      replace: true,
-      transclude: true,
-      template: '<div ng-show="vm.iField.showError(vm.type)" class="text-danger" ng-transclude></div>',
-      scope: {
-        type: '@',
-      },
-      link: link,
-      controller: function () {
-      },
-      controllerAs: 'vm',
-      bindToController: true,
-      require: '^iField'
-    };
-
-
-    function link(scope, elem, attrs, iField) {
-      iField.registerErrorType(scope.vm.type);
-      scope.vm.iField = iField;
-    }
-  }
+      function link(scope, elem, attrs, iField) {
+        iField.registerErrorType(scope.type);
+        scope.iField = iField;
+      }
+    });
 })();
