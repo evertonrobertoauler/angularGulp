@@ -17,7 +17,7 @@
       var iField = ctrls[0];
       var ngModel = ctrls[1];
 
-      iField.registerModel(attrs.name || ngModel.$$parserName, ngModel);
+      iField.registerNgModel(ngModel);
 
       if (['INPUT', 'SELECT'].indexOf(elem.prop('tagName')) !== -1) {
         elem.attr('class', elem.attr('class') + ' form-control');

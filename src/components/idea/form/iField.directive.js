@@ -21,7 +21,7 @@
       };
 
       function link(scope, elem, attrs, iForm) {
-        scope.vm.iForm = iForm;
+        scope.vm.registerForm(iForm);
       }
     });
 })();

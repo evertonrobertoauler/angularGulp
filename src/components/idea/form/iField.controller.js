@@ -8,18 +8,21 @@
   /** @ngInject */
   function iFieldCtrl() {
     var vm = this;
-
+    var ngModel = {}, iForm = {};
     var errorTypes = [];
 
-    vm.formField = {};
-    vm.registerModel = registerModel;
+    vm.registerForm = registerForm;
+    vm.registerNgModel = registerNgModel;
     vm.registerErrorType = registerErrorType;
     vm.showErrors = showErrors;
     vm.showError = showError;
 
-    function registerModel(name, model) {
-      vm.name = name;
-      vm.model = model;
+    function registerForm(form) {
+      iForm = form;
+    }
+
+    function registerNgModel(model) {
+      ngModel = model;
     }
 
     function registerErrorType(type) {
@@ -27,15 +30,15 @@
     }
 
     function showErrors() {
-      return vm.iForm.showErrors && vm.model.$invalid;
-    }
-
-    function testError(type) {
-      return vm.model.$error[type];
+      return iForm.showErrors && ngModel.$invalid;
     }
 
     function showError(type) {
-      return showErrors() && _.find(errorTypes, testError) === type;
+      return vm.showErrors() && _.find(errorTypes, testError) === type;
+    }
+
+    function testError(type) {
+      return ngModel.$error[type];
     }
   }
 })();

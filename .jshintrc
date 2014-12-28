@@ -1,4 +1,8 @@
 {
+  "maxparams": 5,
+  "maxdepth": 3,
+  "maxstatements": 25,
+  "maxcomplexity": 5,
   "node": true,
   "browser": true,
   "esnext": true,
