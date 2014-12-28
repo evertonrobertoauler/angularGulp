@@ -27,7 +27,7 @@
       if (!vm.roles || !vm.roles.length) {
         list = vm.links[undefined];
       } else {
-        list = Array.prototype.concat.apply([], vm.roles.map(function (r) {
+        list = _.flatten(vm.roles.map(function (r) {
           return vm.links[r];
         }));
       }
