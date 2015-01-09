@@ -19,7 +19,7 @@
 
       iField.registerNgModel(ngModel);
 
-      if (['INPUT', 'SELECT'].indexOf(elem.prop('tagName')) !== -1) {
+      if (['checkbox', 'radio'].indexOf(elem.attr('type')) === -1) {
         elem.attr('class', elem.attr('class') + ' form-control');
       }
     }
